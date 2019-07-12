@@ -17,6 +17,11 @@
     <div class="right-button"> > </div>
   </div>
 */
+const carouselContainer = document.querySelector(".carousel-container")
+console.log(carouselContainer)
+
+carouselContainer.appendChild(createCarousel())
+
 
 function createCarousel(){
   //create the elements
