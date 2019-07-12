@@ -18,22 +18,28 @@
 //
 // Create a card for each of the articles and add the card to the DOM.
 
+const cardContainer = document.querySelector(".cards-container")
+console.log(cardContainer)
 
 axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
 .then(res =>{
     console.log('show data',res)
+
     const bootstrap = res.data.articles.bootstrap
     console.log(bootstrap)
     bootstrap.forEach(cards=>{
             const showCard = createCard(cards)
             console.log(showCard)
+            cardContainer.appendChild(showCard)
     })
+    
 
     const javascript = res.data.articles.javascript
     console.log(javascript)
     javascript.forEach(cards=>{
             const showCard = createCard(cards)
             console.log(showCard)
+            cardContainer.appendChild(showCard)
     })
 
     const jquery = res.data.articles.jquery
@@ -41,6 +47,7 @@ axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
     jquery.forEach(cards=>{
             const showCard = createCard(cards)
             console.log(showCard)
+            cardContainer.appendChild(showCard)
     })
 
     const node = res.data.articles.node
@@ -48,6 +55,7 @@ axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
     node.forEach(cards=>{
             const showCard = createCard(cards)
             console.log(showCard)
+            cardContainer.appendChild(showCard)
     })
 
     const technology = res.data.articles.technology
@@ -55,6 +63,7 @@ axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
     technology.forEach(cards=>{
             const showCard = createCard(cards)
             console.log(showCard)
+            cardContainer.appendChild(showCard)
     })
     
     
