@@ -22,6 +22,43 @@
 axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
 .then(res =>{
     console.log('show data',res)
+    const bootstrap = res.data.articles.bootstrap
+    console.log(bootstrap)
+    bootstrap.forEach(cards=>{
+            const showCard = createCard(cards)
+            console.log(showCard)
+    })
+
+    const javascript = res.data.articles.javascript
+    console.log(javascript)
+    javascript.forEach(cards=>{
+            const showCard = createCard(cards)
+            console.log(showCard)
+    })
+
+    const jquery = res.data.articles.jquery
+    console.log(jquery)
+    jquery.forEach(cards=>{
+            const showCard = createCard(cards)
+            console.log(showCard)
+    })
+
+    const node = res.data.articles.node
+    console.log(node)
+    node.forEach(cards=>{
+            const showCard = createCard(cards)
+            console.log(showCard)
+    })
+
+    const technology = res.data.articles.technology
+    console.log(technology)
+    technology.forEach(cards=>{
+            const showCard = createCard(cards)
+            console.log(showCard)
+    })
+    
+    
+    
 }
 
 )
@@ -46,9 +83,9 @@ function createCard(data){
     img.classList.add('img-container')
 
     //set the content
-    headline.textContent = `{Headline of article}`
-    link.src = `{url of authors image}`
-    authorName.textContent = `By {authors name}`
+    headline.textContent = `${data.headline}`
+    link.src = `${data.authorPhoto}`
+    authorName.textContent = `By ${data.authorName}`
 
     //put together
     card.appendChild(headline)
@@ -56,4 +93,6 @@ function createCard(data){
     author.appendChild(img)
     author.appendChild(authorName)
     img.appendChild(link)
+
+    return card
 }
